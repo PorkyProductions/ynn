@@ -9,7 +9,6 @@ export const encodeData = (data: URLArticleProps) => {
 	while (encodedString.includes("/")) {
 		encodedString = encodedString.replace("/", "");
 	}
-	console.log("encoded string: ", encodedString);
 	return encodedString;
 };
 export default encodeData;
