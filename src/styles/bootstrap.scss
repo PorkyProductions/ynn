@@ -2,9 +2,6 @@
 $prefix: "dmv-ppio-";
 $primary: $primary-majorelleBlue;
 
-[data-bs-theme="dark"] {
-    $primary: $secondary-orangePantone;  
-}
 $info: mix($theme-lightBlue, $theme-blue);
 $blue: $theme-blue;
 $indigo: $theme-indigo;
@@ -22,6 +19,10 @@ $gray: #656D75;
 $gray-600: #656D75;
 $enable-rounded: true;
 $enable-shadows: true;
+[data-bs-theme="dark"] {
+    $primary: $secondary-orangePantone;  
+    $body-bg: $black;
+}
 
 
 @import "../../node_modules/bootstrap/scss/bootstrap";

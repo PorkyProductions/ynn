@@ -1,6 +1,6 @@
 'use client';
 
-import { randomInArray } from '@porkyproductions/hat/dist/randomInArray';
+import { randomInArray } from '@porkyproductions/hat/randomInArray';
 // Error components must be Client components
 import { useEffect } from 'react';
 

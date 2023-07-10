@@ -3,6 +3,7 @@ import '@styles/bootstrap.scss'
 import { Raleway } from 'next/font/google'
 import { DESC, NAME } from '@/typescript/constants'
 import Script from 'next/script'
+import Footer from '@/components/footer'
 
 const rw = Raleway({
     subsets: ['latin'], 
@@ -36,7 +37,10 @@ export default function RootLayout({
 							}`
 						}
 					</Script>
-      <body className={rw.className}>{children}</body>
+      <body className={rw.className}>
+        {children}
+        <Footer />
+      </body>
     </html>
   )
 }

@@ -122,12 +122,12 @@ export default () => {
 				</select>
 			</div>
 			<div className="pt-4">
-				<button type="submit" className='btn btn-primary' data-bs-toggle="modal" data-bs-target="#copied">Submit & Copy Link</button> &nbsp;
+				<button type="submit" className='btn btn-primary'><Icon name="check" /> Submit & Copy Link</button> &nbsp;
 			</div>
 		</form>
 		<div className="px-4 py-2">
 			<button type={"button"}  className="btn btn-secondary" onClick={prefillData}>
-						Prefill Data
+					<Icon name="lightning"  />	Prefill
 			</button>
 		</div>
 		</>

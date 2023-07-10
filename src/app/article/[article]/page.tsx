@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: Params, parent: ResolvingMeta
 	const { title, article, author, photoURL } = articleData
 	const previousImages = (await parent).openGraph?.images || []
 	return {
-		"title": title,
+		"title": `${title} | YNN`,
 		"description": article,
 		"authors": { name: author } ?? { name: "YNN" },
 		"generator": "You're Not Newsworthy & Next 13",
