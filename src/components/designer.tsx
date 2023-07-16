@@ -119,6 +119,7 @@ export default () => {
 				<select name="theme" id="theme" className="form-select" onChange={handleInputChange} value={formData.theme}>
 					<option value="classic">Classic</option>
 					<option value="YNN">YNN</option>
+					<option value="newspaper">The YNN Times</option>
 				</select>
 			</div>
 			<div className="pt-4">

@@ -6,7 +6,7 @@ export const NAME = "You're Not Newsworthy!"
 export const ABBR = "YNN"
 export const DESC = "Make up your own news. News flash! You're not actually that interesting. Now you can fix that!"
 export const { version } = pkg;
-export const url = 'https://launchpadapp.vercel.app';
+export const url = 'https://ynn.vercel.app';
 export const parentCompany = `(de)Motivator`;
 export const banner = `
 ******************************
