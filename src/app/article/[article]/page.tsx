@@ -1,6 +1,7 @@
 import { decodeData } from "@typescript/decode"
 import Viewer from "@components/viewer"
-import { Metadata, ResolvingMetadata } from "next"
+import type { Metadata, ResolvingMetadata } from "next"
+import type { URLArticleProps } from "@typescript/types"
 
 interface Params {
 	params: {
@@ -31,5 +32,14 @@ export async function generateMetadata({ params }: Params, parent: ResolvingMeta
 export default function Article({ params }: Params) {
 	const articleData = decodeData(params.article)
 	const { title, article, author, photoURL, date, authorPhotoURL, theme } = articleData
-	return <Viewer title={title} article={article} author={author} photoURL={photoURL} date={date} authorPhotoURL={authorPhotoURL} theme={theme} />
+	const props: URLArticleProps = {
+		title,
+		article,
+		author,
+		photoURL,
+		date,
+		authorPhotoURL,
+		theme
+	}
+	return <Viewer {...props} />
 }
