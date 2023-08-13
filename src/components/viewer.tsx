@@ -53,6 +53,9 @@ export default (urlData: URLArticleProps) => {
 								{urlData.article}
 							</article>
 						</div>
+						<div className="flex content-center justify-center text-red-600">
+							<h2 className="text-red-600">THIS ARTICLE IS <span className="font-extrabold">FAKE</span></h2>
+						</div>
 					</div>
 				</>
 			)
@@ -141,6 +144,9 @@ export default (urlData: URLArticleProps) => {
 								<span className="text-gray-500 text-sm">Written by:</span>
 								<span className="ml-1">{urlData.author || "Anonymous"}</span>
 							</div>
+							<div className="flex content-center justify-center text-red-600">
+								<h2 className="text-red-600">THIS ARTICLE IS <span className="font-extrabold">FAKE</span></h2>
+							</div>
 						</div>
 					</div>					
 					</>
@@ -172,6 +178,9 @@ export default (urlData: URLArticleProps) => {
 				<article className="text-justify m-8 leading-8 first-letter:font-bold first-letter:text-8xl">
 					{urlData.article}
 				</article>
+				<div className="flex content-center justify-center text-red-600">
+					<h2 className="text-red-600">THIS ARTICLE IS <span className="font-extrabold">FAKE</span></h2>
+				</div>
 			</div>
 		</>
 	)

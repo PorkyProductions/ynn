@@ -14,6 +14,14 @@ export async function generateMetadata({ params }: Params, parent: ResolvingMeta
 	const articleData = decodeData(params.article)
 	const { title, article, author, photoURL } = articleData
 	const previousImages = (await parent).openGraph?.images || []
+	let themeColor = "#111827" // classic
+	if (articleData.theme === "YNN") {
+		themeColor = "#dc2626"
+	} else if (articleData.theme === "newspaper") {
+		themeColor = "#0a0a0a"
+	} else {
+		themeColor = "#111827"
+	}
 	return {
 		"title": `${title} | YNN`,
 		"description": article,
@@ -25,7 +33,8 @@ export async function generateMetadata({ params }: Params, parent: ResolvingMeta
 				photoURL,
 				...previousImages
 			]
-		}
+		},
+		"themeColor": themeColor
 	}
 }
 

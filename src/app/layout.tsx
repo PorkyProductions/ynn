@@ -1,9 +1,10 @@
 import '@styles/globals.scss'
 import '@styles/bootstrap.scss'
 import { Raleway } from 'next/font/google'
-import { DESC, NAME } from '@/typescript/constants'
+import { DESC, NAME } from '@typescript/constants'
 import Script from 'next/script'
 import Footer from '@/components/footer'
+import { Metadata } from 'next/types'
 
 const rw = Raleway({
     subsets: ['latin'], 
@@ -15,10 +16,20 @@ const rw = Raleway({
     adjustFontFallback: true,
 })
 
-export const metadata = {
+export const metadata: Metadata = {
   title: NAME,
   description: DESC,
-  "generator": "You're Not Newsworthy & Next 13",
+    generator: "You're Not Newsworthy & Next 13",
+    themeColor: [
+        {
+            media: '(prefers-color-scheme: light)',
+            color: '#4f46e5'
+        },
+        {
+            media: '(prefers-color-scheme: dark)',
+            color: '#F75C03'
+        }
+    ]
 }
 
 export default function RootLayout({
