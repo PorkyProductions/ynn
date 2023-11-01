@@ -9,3 +9,4 @@ export interface URLArticleProps {
 }
 
 export type HTMLElementsAvailableForOnChange = HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+export type HEAFOC = HTMLElementsAvailableForOnChange

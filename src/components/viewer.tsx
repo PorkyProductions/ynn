@@ -29,7 +29,7 @@ export default (urlData: URLArticleProps) => {
 			return (
 				<>
 					<YNNnav />
-					<div className={`max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 ${rhdFont.className}`}>
+					<div className={`max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 ${rhdFont.className} selection:bg-red-600 selection:text-white`}>
 						<h1 className="text-3xl font-bold mb-4">{urlData.title}</h1>
 						
 						{/* News Meta */}
@@ -53,7 +53,7 @@ export default (urlData: URLArticleProps) => {
 								{urlData.article}
 							</article>
 						</div>
-						<div className="flex content-center justify-center text-red-600">
+						<div className="flex content-center justify-center text-red-600 border border-dashed border-red-700">
 							<h2 className="text-red-600">THIS ARTICLE IS <span className="font-extrabold">FAKE</span></h2>
 						</div>
 					</div>
@@ -62,7 +62,7 @@ export default (urlData: URLArticleProps) => {
 		} else if (urlData.theme === "newspaper") {
 			return (
 				<>
-					<div id='root' className={ctFont.className}>
+					<div id='root' className={`${ctFont.className} selection:bg-black selection:text-white`}>
 					<nav className="bg-black">
 						<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 							<div className="flex items-center justify-between h-16">
@@ -144,7 +144,7 @@ export default (urlData: URLArticleProps) => {
 								<span className="text-gray-500 text-sm">Written by:</span>
 								<span className="ml-1">{urlData.author || "Anonymous"}</span>
 							</div>
-							<div className="flex content-center justify-center text-red-600">
+							<div className="flex content-center justify-center text-red-600 border border-dashed border-red-700">
 								<h2 className="text-red-600">THIS ARTICLE IS <span className="font-extrabold">FAKE</span></h2>
 							</div>
 						</div>
@@ -155,7 +155,7 @@ export default (urlData: URLArticleProps) => {
 	} else return (
 		<>
 			<Nav />
-			<div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+			<div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 selection:bg-gray-900 selection:text-white">
 				<h1 className="text-center font-extrabold p-8">
 					{urlData.title}
 					<hr />
@@ -178,7 +178,7 @@ export default (urlData: URLArticleProps) => {
 				<article className="text-justify m-8 leading-8 first-letter:font-bold first-letter:text-8xl">
 					{urlData.article}
 				</article>
-				<div className="flex content-center justify-center text-red-600">
+				<div className="flex content-center justify-center text-red-600 border border-dashed border-red-700">
 					<h2 className="text-red-600">THIS ARTICLE IS <span className="font-extrabold">FAKE</span></h2>
 				</div>
 			</div>

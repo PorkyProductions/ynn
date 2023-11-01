@@ -2,6 +2,7 @@ import { decodeData } from "@typescript/decode"
 import Viewer from "@components/viewer"
 import type { Metadata, ResolvingMetadata } from "next"
 import type { URLArticleProps } from "@typescript/types"
+import { url } from '@typescript/constants'
 
 interface Params {
 	params: {
@@ -31,6 +32,7 @@ export async function generateMetadata({ params }: Params, parent: ResolvingMeta
 		"openGraph": {
 			"images": [
 				photoURL,
+				`${url}/api/generateOGImage?title=${articleData.title}&breaking=false`,
 				...previousImages
 			]
 		},
