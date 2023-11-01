@@ -1,6 +1,6 @@
 import { decodeData } from "@typescript/decode"
 import Viewer from "@components/viewer"
-import type { Metadata, ResolvingMetadata } from "next"
+import type { Metadata, ResolvingMetadata, Viewport } from "next/types"
 import type { URLArticleProps } from "@typescript/types"
 import { url } from '@typescript/constants'
 
@@ -10,19 +10,26 @@ interface Params {
 	}
 }
 
+export async function generateViewport({ params }: Params): Promise<Viewport> {
+	const articleData = decodeData(params.article)
+	const { theme } = articleData
+	let themeColor = "#111827" // classic
+	if (theme === "YNN") {
+		themeColor = "#dc2626"
+	} else if (theme === "newspaper") {
+		themeColor = "#0a0a0a"
+	} else {
+		themeColor = "#111827"
+	}
+	return {
+		themeColor
+	}
+}
 
 export async function generateMetadata({ params }: Params, parent: ResolvingMetadata): Promise<Metadata> {
 	const articleData = decodeData(params.article)
 	const { title, article, author, photoURL } = articleData
 	const previousImages = (await parent).openGraph?.images || []
-	let themeColor = "#111827" // classic
-	if (articleData.theme === "YNN") {
-		themeColor = "#dc2626"
-	} else if (articleData.theme === "newspaper") {
-		themeColor = "#0a0a0a"
-	} else {
-		themeColor = "#111827"
-	}
 	return {
 		"title": `${title} | YNN`,
 		"description": article,
@@ -36,7 +43,6 @@ export async function generateMetadata({ params }: Params, parent: ResolvingMeta
 				...previousImages
 			]
 		},
-		"themeColor": themeColor
 	}
 }
 

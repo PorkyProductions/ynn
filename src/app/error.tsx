@@ -2,7 +2,6 @@
 
 import { randomInArray } from '@porkyproductions/hat/randomInArray';
 // Error components must be Client components
-import { useEffect } from 'react';
 
 const mistakes = [
 	"Blunder",
@@ -49,10 +48,6 @@ export default function Error({
     error: Error;
     reset: () => void;
 }) {
-	useEffect(() => {
-		// Log the error to an error reporting service
-		console.error(error);
-	}, [error]);
 
 	return (
 		<div className=''>

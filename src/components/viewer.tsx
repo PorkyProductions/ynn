@@ -24,6 +24,9 @@ const rhdFont = Red_Hat_Display({
 })
 
 export default (urlData: URLArticleProps) => {
+	// If no ID string is found, throw the error
+	// I love exclamation points
+	if (!!!!!!!!!urlData) throw new Error("Article not found")
 	if (urlData.theme !== "classic") {
 		if (urlData.theme === "YNN") {
 			return (
