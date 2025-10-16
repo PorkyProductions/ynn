@@ -5,32 +5,34 @@ import type { URLArticleProps } from "@typescript/types"
 import { url } from '@typescript/constants'
 
 interface Params {
-	params: {
+	params: Promise<{
 		article: string
-	}
+	}>
 }
 
-export async function generateViewport({ params }: Params): Promise<Viewport> {
-	const articleData = decodeData(params.article)
-	const { theme } = articleData
-	let themeColor = "#111827" // classic
-	if (theme === "YNN") {
+export async function generateViewport(props: Params): Promise<Viewport> {
+    const params = await props.params;
+    const articleData = decodeData(params.article)
+    const { theme } = articleData
+    let themeColor = "#111827" // classic
+    if (theme === "YNN") {
 		themeColor = "#dc2626"
 	} else if (theme === "newspaper") {
 		themeColor = "#0a0a0a"
 	} else {
 		themeColor = "#111827"
 	}
-	return {
+    return {
 		themeColor
 	}
 }
 
-export async function generateMetadata({ params }: Params, parent: ResolvingMetadata): Promise<Metadata> {
-	const articleData = decodeData(params.article)
-	const { title, article, author, photoURL } = articleData
-	const previousImages = (await parent).openGraph?.images || []
-	return {
+export async function generateMetadata(props: Params, parent: ResolvingMetadata): Promise<Metadata> {
+    const params = await props.params;
+    const articleData = decodeData(params.article)
+    const { title, article, author, photoURL } = articleData
+    const previousImages = (await parent).openGraph?.images || []
+    return {
 		"title": `${title} | YNN`,
 		"description": article,
 		"authors": { name: author } ?? { name: "YNN" },
@@ -46,10 +48,11 @@ export async function generateMetadata({ params }: Params, parent: ResolvingMeta
 	}
 }
 
-export default function Article({ params }: Params) {
-	const articleData = decodeData(params.article)
-	const { title, article, author, photoURL, date, authorPhotoURL, theme } = articleData
-	const props: URLArticleProps = {
+export default async function Article(props0: Params) {
+    const params = await props0.params;
+    const articleData = decodeData(params.article)
+    const { title, article, author, photoURL, date, authorPhotoURL, theme } = articleData
+    const props: URLArticleProps = {
 		title,
 		article,
 		author,
@@ -58,5 +61,5 @@ export default function Article({ params }: Params) {
 		authorPhotoURL,
 		theme
 	}
-	return <Viewer {...props} />
+    return <Viewer {...props} />
 }
