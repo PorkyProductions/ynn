@@ -1,19 +1,10 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-
 // Main Theme
-
 $primary-majorelleBlue: #4f46e5;
 $highlights: hsl(240, 100%, 48%);
 $secondary-orangePantone: #F75C03;
 $tertiary-mauve: #DABFFF;
 
-
-
 // Base Colors & Theme
-
 $theme-red: #ef4444;
 $theme-orange: #f97316;
 $theme-yellow: #fbbf24;
@@ -31,25 +22,7 @@ $theme-white: #fafafa;
 $theme-black: #0a0a0a;
 
 $theme-border-radius-md: 15px;
-* {
-    accent-color: $primary-majorelleBlue;
-    &::selection {
-        background-color: mix($highlights, $primary-majorelleBlue, 50%);
-        color: $theme-white;
-    }
-    input,
-    label {
-        cursor: pointer;
-    }
-}
 
-@media (prefers-color-scheme: dark) {
-    *:not(h1):not(i) {
-        color: $theme-white;
-        background-color: $theme-black;
-        accent-color: mix($secondary-orangePantone, $theme-orange, 10%);
-        &::selection {
-            background-color: $secondary-orangePantone
-        }
-    }
+input, label {
+    cursor: pointer;
 }

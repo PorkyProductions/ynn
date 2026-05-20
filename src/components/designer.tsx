@@ -26,12 +26,12 @@ export default () => {
 		router.push(url);
 	};
 	const prefillData = () => setFormData({
-		title: "Scientists Discover New Species of Flying Fish",
-		photoURL: "https://th.bing.com/th/id/OIG.em2DfwXJHDs9TRhVAfo9?pid=ImgGn",
-		date: "2023-07-08",
-		author: "Tom Hanks",
-		authorPhotoURL: "https://th.bing.com/th/id/OIP.BWxawB_y26R4Jz6LXAAbegHaLJ?pid=ImgDet&rs=1",
-		article: "Scientists have discovered a new species of flying fish that can soar up to 100 meters in the air and glide for several minutes. The fish, named Exocoetus volans, was found in the tropical waters of the Pacific Ocean, where it feeds on insects and small birds. The researchers, from the University of Hawaii and the Smithsonian Institution, were amazed by the fish’s remarkable ability to fly. They used drones and cameras to capture the fish in action, and analyzed their anatomy and aerodynamics. They found that the fish has a pair of large, wing-like pectoral fins that can spread out to create lift. It also has a long, forked tail that can act as a propeller and a rudder. The fish can launch itself out of the water by rapidly flapping its tail, and then glide in the air by adjusting its fins and body posture. The fish can fly for up to five minutes at a time, covering distances of up to 500 meters. It can also change direction and altitude in mid-air, avoiding predators and obstacles. The researchers believe that the fish evolved this ability to escape from larger fish that prey on them in the water. The discovery of Exocoetus volans adds to the diversity and complexity of life on Earth, and challenges our understanding of the boundaries between aquatic and aerial animals. The researchers hope to learn more about the fish’s behavior, ecology and evolution, and to protect its habitat from human threats. The study was published in the journal Nature Communications.📰",
+		title: "NASA Astronauts Complete Record-Breaking Spacewalk, Accidentally Release $84,000 Torque Wrench Into Orbit",
+		photoURL: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/The_Earth_seen_from_Apollo_17.jpg/1280px-The_Earth_seen_from_Apollo_17.jpg",
+		date: "2026-05-18",
+		author: "Sarah Mitchell",
+		authorPhotoURL: "https://randomuser.me/api/portraits/women/29.jpg",
+		article: "Astronauts aboard the International Space Station completed a record-breaking eight-hour and forty-three-minute spacewalk Monday, successfully repairing a faulty thermal control module and upgrading communication relays on the station’s starboard truss. The milestone was tempered, however, by the accidental release of a 10-inch torque wrench into low Earth orbit during the excursion’s final phase. The tool, valued at $84,000 and custom-manufactured for zero-gravity use, is currently traveling at approximately 17,500 miles per hour at an altitude of 253 miles. Officials confirmed it poses no immediate threat to the station or any other spacecraft. ‘We are tracking the object and are confident it will de-orbit and burn up upon re-entry within the next several weeks,’ said NASA Flight Director Peggy Whitson during a press briefing from Johnson Space Center in Houston. ‘In the meantime, we have updated EVA protocols to require secondary tether systems on all tools above the size of a standard hex key.’ Mission specialists Commander Anne Fischer and Major David Reyes spent the first six hours replacing a degraded power conditioning unit before turning to antenna array work. Both primary objectives were successfully completed. The wrench becomes the third most valuable object accidentally released into orbit in NASA history, behind a thermal cover lost during STS-88 in 1998 and a camera mount that drifted from the Hubble servicing mission in 1997. The agency declined to confirm whether any personnel would face disciplinary review, citing an ongoing internal assessment. Senator Maria Cantwell, chair of the Senate Commerce Committee, called for a briefing on NASA’s tool retention procedures. A spokesperson for the agency said the matter was being handled at the appropriate level. No word yet on whether the wrench will receive a formal mission designation.",
 		theme: "classic"
 	})
 	return (
@@ -97,8 +97,7 @@ export default () => {
 					id="authorPhotoURL"
 					className="border-2 h-full form-control"
 					onChange={handleInputChange}
-					value={formData.authorPhotoURL}
-					required />
+					value={formData.authorPhotoURL} />
 			</div>
 			<label className="form-label" htmlFor="article">
 				<Icon name='text-paragraph' />Article
@@ -119,7 +118,10 @@ export default () => {
 				<select name="theme" id="theme" className="form-select" onChange={handleInputChange} value={formData.theme}>
 					<option value="classic">Classic</option>
 					<option value="YNN">YNN</option>
-					<option value="newspaper">The YNN Times</option>
+					<option value="newspaper">The YNN Times (Newspaper)</option>
+					<option value="breaking">Breaking News (TV)</option>
+					<option value="tech">Tech Blog</option>
+					<option value="magazine">Magazine</option>
 				</select>
 			</div>
 			<div className="pt-4">

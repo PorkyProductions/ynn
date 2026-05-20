@@ -1,12 +1,20 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+	sassOptions: {
+		silenceDeprecations: ['import', 'global-builtin', 'color-functions'],
+	},
 	images: {
-		"remotePatterns": [
+		remotePatterns: [
 			{
-				hostname: "*"
-			}
-		]
-	}
+				protocol: 'https',
+				hostname: '**',
+			},
+			{
+				protocol: 'http',
+				hostname: '**',
+			},
+		],
+	},
 }
 
 module.exports = nextConfig

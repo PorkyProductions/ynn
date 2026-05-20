@@ -1,9 +1,12 @@
 import { NAME } from "@/typescript/constants";
 
-export default () => (
-	<span>
-		<h1 className="font-bold p-4">
-			<span>{NAME}</span> <span className="text-xl"><span className="font-medium"> | </span> <span className="font-medium">by </span> <span className="font-semibold">(de)Motivator</span></span>
-		</h1>
-	</span>
-)
+export default function Title() {
+  return (
+    <span className="block">
+      <span className="font-black text-xl text-white tracking-tight">{NAME}</span>
+      <span className="block text-xs text-gray-500 mt-0.5">
+        by <span className="text-gray-400">(de)Motivator</span>
+      </span>
+    </span>
+  );
+}

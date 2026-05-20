@@ -1,4 +1,4 @@
-import '@styles/globals.scss'
+import '@styles/tailwind.css'
 import '@styles/bootstrap.scss'
 import { Raleway } from 'next/font/google'
 import { DESC, NAME } from '@typescript/constants'
@@ -42,16 +42,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <Script id="toggleTheme">
-						{
-							`if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-								document.body.setAttribute('data-bs-theme', 'dark')
-							} else {
-								document.body.setAttribute('data-bs-theme', 'light')
-							}`
-						}
-					</Script>
       <body className={rw.className}>
+        <Script id="toggleTheme" strategy="beforeInteractive">
+          {`if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.body.setAttribute('data-bs-theme', 'dark')
+          } else {
+            document.body.setAttribute('data-bs-theme', 'light')
+          }`}
+        </Script>
         {children}
         <Footer />
       </body>

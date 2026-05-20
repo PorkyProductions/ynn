@@ -14,13 +14,17 @@ export async function generateViewport(props: Params): Promise<Viewport> {
     const params = await props.params;
     const articleData = decodeData(params.article)
     const { theme } = articleData
-    let themeColor = "#111827" // classic
+    let themeColor = "#111827" // classic default
     if (theme === "YNN") {
 		themeColor = "#dc2626"
 	} else if (theme === "newspaper") {
 		themeColor = "#0a0a0a"
-	} else {
-		themeColor = "#111827"
+	} else if (theme === "breaking") {
+		themeColor = "#dc2626"
+	} else if (theme === "tech") {
+		themeColor = "#0f0f10"
+	} else if (theme === "magazine") {
+		themeColor = "#faf9f7"
 	}
     return {
 		themeColor
@@ -35,7 +39,7 @@ export async function generateMetadata(props: Params, parent: ResolvingMetadata)
     return {
 		"title": `${title} | YNN`,
 		"description": article,
-		"authors": { name: author } ?? { name: "YNN" },
+		"authors": { name: author || "YNN" },
 		"generator": "You're Not Newsworthy & Next 13",
 		"keywords": title,
 		"openGraph": {

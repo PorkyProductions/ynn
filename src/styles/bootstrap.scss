@@ -20,11 +20,33 @@ $gray-600: #656D75;
 $enable-rounded: true;
 $enable-shadows: true;
 [data-bs-theme="dark"] {
-    $primary: $secondary-orangePantone;  
-    $body-bg: $black;
+    --bs-primary: #{$secondary-orangePantone};
+    --bs-primary-rgb: 247, 92, 3;
+    --bs-body-bg: #{$theme-black};
+    --bs-body-color: #{$theme-white};
 }
 
 
 @import "../../node_modules/bootstrap/scss/bootstrap";
 @import "../../node_modules/bootstrap/scss/bootstrap-reboot";
-@import "../../node_modules/bootstrap-icons/font/bootstrap-icons.scss"
+@import "../../node_modules/bootstrap-icons/font/bootstrap-icons.scss";
+
+.glass-card {
+  background-color: rgb(255 255 255 / 82%);
+  backdrop-filter: blur(12px) saturate(120%);
+  border: 1px solid rgb(255 255 255 / 60%);
+  box-shadow:
+    0 4px 20px rgb(15 23 42 / 8%),
+    0 1px 4px rgb(15 23 42 / 5%),
+    inset 0 1px 0 rgb(255 255 255 / 50%);
+}
+
+[data-bs-theme='dark'] .glass-card {
+  background-color: rgb(10 14 28 / 65%);
+  backdrop-filter: blur(12px) saturate(120%);
+  border: 1px solid rgb(255 255 255 / 7%);
+  box-shadow:
+    0 4px 20px rgb(0 0 0 / 36%),
+    0 1px 4px rgb(0 0 0 / 18%),
+    inset 0 1px 0 rgb(255 255 255 / 4%);
+}
